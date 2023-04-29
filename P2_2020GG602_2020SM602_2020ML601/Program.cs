@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<hospitalDbContext>(opt =>
         opt.UseSqlServer(
-            builder.Configuration.GetConnectionString("equiposDbConnection")
+            builder.Configuration.GetConnectionString("hospitalDbConnection")
             )
         );
 var app = builder.Build();
