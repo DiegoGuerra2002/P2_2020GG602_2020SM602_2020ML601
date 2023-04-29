@@ -38,31 +38,32 @@
         <button class="btn btn-success" type="submit" value="Guardar">Guardar</button>
     </div>
 
-    <table class="table- table-striped">
-        <thead>
-            <tr>
-                <th>Departamento</th>
-                <th>Genero</th>
-                <th>Confirmados</th>
-                <th>Recuperados</th>
-                <th>Fallecidos</th>
-            </tr>
-        </thead>
-        <tbody>
-                @foreach (var registro in (IEnumerable<dynamic>)ViewData["listadodeRegistros"])
-                {
+   <div>
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>@registro.nombredepartamento</td>
-                        <td>@registro.generotipo</td>
-                        <td>@registro.confirmados</td>
-                        <td>@registro.recuperados</td>
-                        <td>@registro.fallecidos</td>
+                        <th>Departamento</th>
+                        <th>Genero</th>
+                        <th>Confirmados</th>
+                        <th>Recuperados</th>
+                        <th>Fallecidos</th>
                     </tr>
-                }
-            </tbody>
-    </table>
-
-    <label>Derechos Reservados: HENRY SOLITO - DIEGO GUEVARA- GUILLERMO MEZQUITA</label>
+                </thead>
+                <tbody>
+                    @foreach (var registro in (IEnumerable<dynamic>)ViewData["listadodeRegistros"])
+                    {
+                        <tr>
+                            <td>@registro.nombredepartamento</td>
+                            <td>@registro.generotipo</td>
+                            <td>@registro.confirmados</td>
+                            <td>@registro.recuperados</td>
+                            <td>@registro.fallecidos</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <label class="align-self-center">Derechos Reservados: HENRY SOLITO - DIEGO GUEVARA- GUILLERMO MEZQUITA</label>
+   </div>
     </form>
 
 }
