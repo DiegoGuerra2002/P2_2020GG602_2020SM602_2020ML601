@@ -3,67 +3,74 @@
 *@
 @{
     ViewData["Title"] = "Registro";
-    <h1> Registro de Covid</h1>
-    <label>El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero</label>
+    <di class="bg-gradient">
+        <div class="align-content-center">
+            <h1 class="text-center">Registro de Covid</h1>
+            <p class="text-center">El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero</p>
+        </div>
 
-    <h4>Reportar casos</h4>
-    <form asp-action="CrearRegistro">
-    <div class="form-group row mb-4">
-        <div class="col-sm-4">
-            <label>Departamento</label>
-            @Html.DropDownList("iddepartamento", ViewData["listaDepartamentos"] as SelectList, "Seleccione un Departamento", new {@class="form-control"})
-        </div>
-        <div class="col-sm-4">
-            <label>Generos</label>
-            @Html.DropDownList("idgenero", ViewData["listaGeneros"] as SelectList, "Seleccione Genero", new {@class="form-control"})
-        </div>
-    </div>
-    <div class="form-group row mb-4">
-        <div class="col-sm-4">
-           <label>Casos Confirmados</label>
-           @Html.TextBox("confirmados","", new {@class="form-control"})
-        </div>
-        <div class="col-sm-4">
-            <label>Numero de recuperados</label>
-            @Html.TextBox("recuperados","", new {@class="form-control"})
-        </div>
-        <div class="col-sm-4">
-            <label>Numero de fallecidos</label>
-            @Html.TextBox("fallecidos","", new {@class="form-control"})
-        </div>
-        
-        
-    </div>
-    <div class="d-grid gap-2">
-        <button class="btn btn-success" type="submit" value="Guardar">Guardar</button>
-    </div>
 
-   <div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Departamento</th>
-                        <th>Genero</th>
-                        <th>Confirmados</th>
-                        <th>Recuperados</th>
-                        <th>Fallecidos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var registro in (IEnumerable<dynamic>)ViewData["listadodeRegistros"])
-                    {
+        <h4>Reportar casos</h4>
+        <form asp-action="CrearRegistro">
+            <div class="form-group row mb-4">
+                <div class="col-sm-4">
+                    <label>Departamento</label>
+                    @Html.DropDownList("iddepartamento", ViewData["listaDepartamentos"] as SelectList, "Seleccione un Departamento", new {@class="form-control"})
+                </div>
+                <div class="col-sm-4">
+                    <label>Generos</label>
+                    @Html.DropDownList("idgenero", ViewData["listaGeneros"] as SelectList, "Seleccione Genero", new {@class="form-control"})
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <div class="col-sm-4">
+                    <label>Casos Confirmados</label>
+                    @Html.TextBox("confirmados","", new {@class="form-control"})
+                </div>
+                <div class="col-sm-4">
+                    <label>Numero de recuperados</label>
+                    @Html.TextBox("recuperados","", new {@class="form-control"})
+                </div>
+                <div class="col-sm-4">
+                    <label>Numero de fallecidos</label>
+                    @Html.TextBox("fallecidos","", new {@class="form-control"})
+                </div>
+
+
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="submit" value="Guardar">Guardar</button>
+            </div>
+
+            <div>
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td>@registro.nombredepartamento</td>
-                            <td>@registro.generotipo</td>
-                            <td>@registro.confirmados</td>
-                            <td>@registro.recuperados</td>
-                            <td>@registro.fallecidos</td>
+                            <th>Departamento</th>
+                            <th>Genero</th>
+                            <th>Confirmados</th>
+                            <th>Recuperados</th>
+                            <th>Fallecidos</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-            <label class="align-self-center">Derechos Reservados: HENRY SOLITO - DIEGO GUEVARA- GUILLERMO MEZQUITA</label>
-   </div>
-    </form>
+                    </thead>
+                    <tbody>
+                        @foreach (var registro in (IEnumerable<dynamic>)ViewData["listadodeRegistros"])
+                        {
+                            <tr>
+                                <td>@registro.nombredepartamento</td>
+                                <td>@registro.generotipo</td>
+                                <td>@registro.confirmados</td>
+                                <td>@registro.recuperados</td>
+                                <td>@registro.fallecidos</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <p class="align-content-center">Derechos Reservados: HENRY SOLITO - DIEGO GUEVARA- GUILLERMO MEZQUITA</p>
+                
+            </div>
+        </form>
+    </di>
+    
 
 }
