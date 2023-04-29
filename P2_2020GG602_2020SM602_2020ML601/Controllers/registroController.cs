@@ -26,11 +26,11 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
                                    join f in _hospitalDbContext.generos on m.idgenero equals f.idgenero
                                    select new
                                    {
-                                       Departamento = e.nombredepartamento,
-                                       Genero = f.generotipo,
-                                       Confirmados = m.confirmados,
-                                       Recuperados = m.recuperados,
-                                       Fallecidos = m.fallecidos,
+                                       nombredepartamento = e.nombredepartamento,
+                                       generotipo = f.generotipo,
+                                       confirmados = m.confirmados,
+                                       recuperados = m.recuperados,
+                                       fallecidos = m.fallecidos,
                                    }).ToList();
             ViewData["listadodeRegistros"] = listadoRegistro;
 
