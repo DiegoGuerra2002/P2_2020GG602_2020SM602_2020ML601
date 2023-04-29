@@ -2,4 +2,17 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    <h1> Registro de Covid</h1>
+    <h3>El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero</h3>
+
+    <h2>Reportar casos</h2>
+    <div class="form-group row mb-4">
+        <div class="col-sm-2">
+            <label>Departamento</label>
+        </div>
+        <div class="col-sm-4">
+            @Html.DropDownList("iddepartamento", ViewData["listaDepartamentos"] as SelectList, "Seleccione un Departamaneto", new {@class="form-control"})            
+        </div>
+    </div>
+
 }
