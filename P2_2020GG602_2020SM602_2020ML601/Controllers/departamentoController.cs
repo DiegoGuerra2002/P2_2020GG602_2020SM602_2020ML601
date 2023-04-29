@@ -9,32 +9,32 @@ using P2_2020GG602_2020SM602_2020ML601.Models;
 
 namespace P2_2020GG602_2020SM602_2020ML601.Controllers
 {
-    public class departamentoesController : Controller
+    public class departamentoController : Controller
     {
         private readonly hospitalDbContext _context;
 
-        public departamentoesController(hospitalDbContext context)
+        public departamentoController(hospitalDbContext context)
         {
             _context = context;
         }
 
-        // GET: departamentoes
+        // GET: departamento
         public async Task<IActionResult> Index()
         {
-              return _context.departamentos != null ? 
-                          View(await _context.departamentos.ToListAsync()) :
-                          Problem("Entity set 'hospitalDbContext.departamentos'  is null.");
+              return _context.departamento != null ? 
+                          View(await _context.departamento.ToListAsync()) :
+                          Problem("Entity set 'hospitalDbContext.departamento'  is null.");
         }
 
-        // GET: departamentoes/Details/5
+        // GET: departamento/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.departamentos == null)
+            if (id == null || _context.departamento == null)
             {
                 return NotFound();
             }
 
-            var departamento = await _context.departamentos
+            var departamento = await _context.departamento
                 .FirstOrDefaultAsync(m => m.iddepartamento == id);
             if (departamento == null)
             {
@@ -44,13 +44,13 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
             return View(departamento);
         }
 
-        // GET: departamentoes/Create
+        // GET: departamento/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: departamentoes/Create
+        // POST: departamento/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -66,15 +66,15 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
             return View(departamento);
         }
 
-        // GET: departamentoes/Edit/5
+        // GET: departamento/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.departamentos == null)
+            if (id == null || _context.departamento == null)
             {
                 return NotFound();
             }
 
-            var departamento = await _context.departamentos.FindAsync(id);
+            var departamento = await _context.departamento.FindAsync(id);
             if (departamento == null)
             {
                 return NotFound();
@@ -82,7 +82,7 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
             return View(departamento);
         }
 
-        // POST: departamentoes/Edit/5
+        // POST: departamento/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -117,15 +117,15 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
             return View(departamento);
         }
 
-        // GET: departamentoes/Delete/5
+        // GET: departamento/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.departamentos == null)
+            if (id == null || _context.departamento == null)
             {
                 return NotFound();
             }
 
-            var departamento = await _context.departamentos
+            var departamento = await _context.departamento
                 .FirstOrDefaultAsync(m => m.iddepartamento == id);
             if (departamento == null)
             {
@@ -135,19 +135,19 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
             return View(departamento);
         }
 
-        // POST: departamentoes/Delete/5
+        // POST: departamento/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.departamentos == null)
+            if (_context.departamento == null)
             {
-                return Problem("Entity set 'hospitalDbContext.departamentos'  is null.");
+                return Problem("Entity set 'hospitalDbContext.departamento'  is null.");
             }
-            var departamento = await _context.departamentos.FindAsync(id);
+            var departamento = await _context.departamento.FindAsync(id);
             if (departamento != null)
             {
-                _context.departamentos.Remove(departamento);
+                _context.departamento.Remove(departamento);
             }
             
             await _context.SaveChangesAsync();
@@ -156,7 +156,7 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
 
         private bool departamentoExists(int id)
         {
-          return (_context.departamentos?.Any(e => e.iddepartamento == id)).GetValueOrDefault();
+          return (_context.departamento?.Any(e => e.iddepartamento == id)).GetValueOrDefault();
         }
     }
 }

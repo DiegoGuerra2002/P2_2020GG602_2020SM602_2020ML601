@@ -13,7 +13,7 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
         }
         public IActionResult Index()
         {
-            var listaDepartamentos = (from m in _hospitalDbContext.departamentos
+            var listaDepartamentos = (from m in _hospitalDbContext.departamento
                                       select m).ToList();
             ViewData["listaDepartamentos"] = new SelectList(listaDepartamentos, "iddepartamento", "nombredepartamento");
 
