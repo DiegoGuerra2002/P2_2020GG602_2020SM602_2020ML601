@@ -1,8 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using P2_2020GG602_2020SM602_2020ML601.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<hospitalDbContext>(opt =>
+        opt.UseSqlServer(
+            builder.Configuration.GetConnectionString("equiposDbConnection")
+            )
+        );
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
