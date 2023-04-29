@@ -17,6 +17,10 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
                                       select m).ToList();
             ViewData["listaDepartamentos"] = new SelectList(listaDepartamentos, "iddepartamento", "nombredepartamento");
 
+            var listaGeneros = (from m in _hospitalDbContext.generos
+                                select m).ToList();
+            ViewData["listaGeneros"] = new SelectList(listaGeneros, "idgenero", "generotipo");
+
             return View();
         }
     }

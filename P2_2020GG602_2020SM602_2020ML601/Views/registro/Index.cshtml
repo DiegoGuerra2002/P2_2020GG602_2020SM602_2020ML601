@@ -4,16 +4,37 @@
 @{
     ViewData["Title"] = "Registro";
     <h1> Registro de Covid</h1>
-    <h3>El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero</h3>
+    <label>El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero</label>
 
-    <h2>Reportar casos</h2>
+    <h4>Reportar casos</h4>
     <div class="form-group row mb-4">
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <label>Departamento</label>
+            @Html.DropDownList("iddepartamento", ViewData["listaDepartamentos"] as SelectList, "Seleccione un Departamento", new {@class="form-control"})
         </div>
         <div class="col-sm-4">
-            @Html.DropDownList("iddepartamento", ViewData["listaDepartamentos"] as SelectList, "Seleccione un Departamaneto", new {@class="form-control"})
+            <label>Generos</label>
+            @Html.DropDownList("idgenero", ViewData["listaGeneros"] as SelectList, "Seleccione Genero", new {@class="form-control"})
         </div>
+    </div>
+    <div class="form-group row mb-4">
+        <div class="col-sm-4">
+           <label>Casos Confirmados</label>
+           @Html.TextBox("nombre","", new {@class="form-control"})
+        </div>
+        <div class="col-sm-4">
+            <label>Numero de recuperados</label>
+            @Html.TextBox("nombre","", new {@class="form-control"})
+        </div>
+        <div class="col-sm-4">
+            <label>Numero de fallecidos</label>
+            @Html.TextBox("nombre","", new {@class="form-control"})
+        </div>
+        
+        
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-success" type="submit" value="Guardar">Guardar</button>
     </div>
 
 }
