@@ -21,7 +21,27 @@ namespace P2_2020GG602_2020SM602_2020ML601.Controllers
                                 select m).ToList();
             ViewData["listaGeneros"] = new SelectList(listaGeneros, "idgenero", "generotipo");
 
+            var listadoRegistro = (from e in _hospitalDbContext.departamento
+                                   join m in _hospitalDbContext.casosreportados on e.iddepartamento equals m.iddepartamento
+                                   join f in _hospitalDbContext.generos on m.idgenero equals f.idgenero
+                                   select new
+                                   {
+                                       Departamento = e.nombredepartamento,
+                                       Genero = f.generotipo,
+                                       Confirmados = m.confirmados,
+                                       Recuperados = m.recuperados,
+                                       Fallecidos = m.fallecidos,
+                                   }).ToList();
+            ViewData["listadodeRegistros"] = listadoRegistro;
+
             return View();
+        }
+        public IActionResult CrearRegistro(casosreportados nuevoCasos)
+        {
+            _hospitalDbContext.Add(nuevoCasos);
+            _hospitalDbContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

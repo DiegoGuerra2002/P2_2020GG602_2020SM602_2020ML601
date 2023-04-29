@@ -7,6 +7,7 @@
     <label>El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero</label>
 
     <h4>Reportar casos</h4>
+    <form asp-action="CrearRegistro">
     <div class="form-group row mb-4">
         <div class="col-sm-4">
             <label>Departamento</label>
@@ -20,15 +21,15 @@
     <div class="form-group row mb-4">
         <div class="col-sm-4">
            <label>Casos Confirmados</label>
-           @Html.TextBox("nombre","", new {@class="form-control"})
+           @Html.TextBox("confirmados","", new {@class="form-control"})
         </div>
         <div class="col-sm-4">
             <label>Numero de recuperados</label>
-            @Html.TextBox("nombre","", new {@class="form-control"})
+            @Html.TextBox("recuperados","", new {@class="form-control"})
         </div>
         <div class="col-sm-4">
             <label>Numero de fallecidos</label>
-            @Html.TextBox("nombre","", new {@class="form-control"})
+            @Html.TextBox("fallecidos","", new {@class="form-control"})
         </div>
         
         
@@ -36,5 +37,32 @@
     <div class="d-grid gap-2">
         <button class="btn btn-success" type="submit" value="Guardar">Guardar</button>
     </div>
+
+    <table class="table- table-striped">
+        <thead>
+            <tr>
+                <th>Departamento</th>
+                <th>Genero</th>
+                <th>Confirmados</th>
+                <th>Recuperados</th>
+                <th>Fallecidos</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var registro in (IEnumerable<dynamic>)ViewData["listadodeRegistros"])
+                {
+                    <tr>
+                        <td>@registro.nombredepartamento</td>
+                        <td>@registro.generotipo</td>
+                        <td>@registro.confirmados</td>
+                        <td>@registro.recuperados</td>
+                        <td>@registro.fallecidos</td>
+                    </tr>
+                }
+            </tbody>
+    </table>
+
+    <h4>Derechos Reservados: HENRY SOLITO - DIEGO GUEVARA- GUILLERMO MEZQUITA</h4>
+    </form>
 
 }
